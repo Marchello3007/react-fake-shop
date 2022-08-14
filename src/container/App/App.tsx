@@ -1,7 +1,14 @@
 import React from 'react'
+import CssBaseline from '@mui/material/CssBaseline'
+import Header from 'container/Header/Header'
 
 const App = () => {
-    return <h1>Hello Appp</h1>
+    return (
+        <>
+            <CssBaseline />
+            <Header />
+        </>
+    )
 }
 
 export default App
