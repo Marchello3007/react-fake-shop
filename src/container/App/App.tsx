@@ -1,38 +1,18 @@
 import React from 'react'
 
-type Props = {
-    title: string
-}
-
-const Applist = () => {
-    return (
-        <ul>
-            <li>List item 1</li>
-            <li>List item 2</li>
-            <li>List item 3</li>
-        </ul>
-    )
-}
-
-const AppHeader = (props: Props) => {
-    // console.log(props)
-    return <h1>Hello4 {props.title}</h1>
-}
-
 const App = () => {
-    return (
-        <>
-            <AppHeader title="yo App--js333" />
-            <AppHeader title="yo React--jS" />
-            <AppHeader title="yo React--jS" />
-
-            <Applist />
-        </>
-    )
+    return <h1>Hello Appp</h1>
 }
 
 export default App
 
+//
+//
+//
+//
+//
+//
+//
 // import React from 'react'
 
 // function Blabla() {
