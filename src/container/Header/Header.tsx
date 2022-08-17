@@ -1,13 +1,13 @@
-import React from 'react'
 import {
     Container,
     AppBar,
     Toolbar,
     IconButton,
     Typography,
-    Button,
 } from '@mui/material'
 import MenuIcon from '@mui/icons-material/Menu'
+import Menu from 'components/Menu/Menu'
+import CartHeader from 'container/CartHeader/CartHeader'
 
 type Props = {}
 
@@ -32,7 +32,8 @@ const Header = (props: Props) => {
                     >
                         My Fake Shop
                     </Typography>
-                    <Button color="inherit">Login</Button>
+                    <Menu />
+                    <CartHeader />
                 </Toolbar>
             </Container>
         </AppBar>
