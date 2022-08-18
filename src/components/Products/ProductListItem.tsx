@@ -15,7 +15,7 @@ const ProductListItem = (props: Props) => {
             </CardContent>
 
             <CardActions>
-                <Button variant="contained">Add to cart</Button>
+                <Button variant="outlined">Add to cart</Button>
             </CardActions>
         </Card>
     )
