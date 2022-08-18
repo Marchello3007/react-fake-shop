@@ -1,17 +1,29 @@
 import { Button, Card, CardActions, CardContent } from '@mui/material'
 import React from 'react'
 
-type Props = {}
+type PropsBlaBla = {
+    name: string
+    description: string
+    type: string
+    capacity: number
+    price: number
+}
 
-const ProductListItem = (props: Props) => {
+const ProductListItem = ({
+    name,
+    description,
+    type,
+    capacity,
+    price,
+}: PropsBlaBla) => {
     return (
         <Card>
             <CardContent>
-                <h4 className="product-title">iPhone X</h4>
-                <div className="product-description">This is iPhone X</div>
-                <div className="product-features">Type: phone</div>
-                <div className="product-features">Capacity: 64Gb</div>
-                <div className="product-price">$ 500</div>
+                <h4 className="product-title">{name}</h4>
+                <div className="product-description">{description}</div>
+                <div className="product-features">Type: {type}</div>
+                <div className="product-features">{capacity} Gb</div>
+                <div className="product-price">$ {price}</div>
             </CardContent>
 
             <CardActions>
