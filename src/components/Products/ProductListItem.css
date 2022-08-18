@@ -1,4 +1,10 @@
 .green {
-  color: green;
+  color: rgb(255, 47, 245);
   font-weight: bold;
+}
+
+.btn-wrap {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 15px;
 }/*# sourceMappingURL=ProductListItem.css.map */
