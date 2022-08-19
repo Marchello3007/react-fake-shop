@@ -5,6 +5,7 @@ import './ProductListItem.scss'
 import productsArray from './productsArray'
 
 export type ProductProps = {
+    id: number
     name: string
     description: string
     type: string
