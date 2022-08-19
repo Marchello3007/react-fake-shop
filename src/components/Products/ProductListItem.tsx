@@ -2,8 +2,9 @@ import { Button, Card, CardActions, CardContent } from '@mui/material'
 import React from 'react'
 // import './ProductListItem.css'
 import './ProductListItem.scss'
+import productsArray from './productsArray'
 
-type PropsBlaBla = {
+export type ProductProps = {
     name: string
     description: string
     type: string
@@ -17,7 +18,7 @@ const ProductListItem = ({
     type,
     capacity,
     price,
-}: PropsBlaBla) => {
+}: ProductProps) => {
     return (
         <Card>
             <CardContent>
