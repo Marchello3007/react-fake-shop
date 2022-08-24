@@ -28,13 +28,11 @@ class ProductListItem extends Component<ProductProps, State> {
     state = {
         count: 5,
     }
-    //або:
-    // constructor(props: ProductProps) {
-    //     super(props)
-    //     this.state = {
-    //         count: 5,
-    //     }
-    // }
+
+    constructor(props: ProductProps) {
+        super(props)
+        this.onDecrementClick = this.onDecrementClick.bind(this)
+    }
 
     onDecrementClick() {
         console.log(this)
@@ -60,7 +58,7 @@ class ProductListItem extends Component<ProductProps, State> {
                     <div className="product-quantity">
                         <Button
                             variant="contained"
-                            onClick={this.onDecrementClick.bind(this)}
+                            onClick={this.onDecrementClick}
                         >
                             -
                         </Button>
