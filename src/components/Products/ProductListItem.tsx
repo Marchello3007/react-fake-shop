@@ -26,7 +26,7 @@ type State = {
 
 class ProductListItem extends Component<ProductProps, State> {
     state = {
-        count: 10,
+        count: 7,
     }
     //або:
     // constructor(props: ProductProps) {
@@ -37,23 +37,18 @@ class ProductListItem extends Component<ProductProps, State> {
     // }
 
     render() {
+        const { image, name, description, type, capacity, price } = this.props
         return (
             <Card>
                 <CardContent>
                     <div className="product-image">
-                        <img src={this.props.image} alt="" />
+                        <img src={image} alt="" />
                     </div>
-                    <h3 className="product-title">{this.props.name}</h3>
-                    <div className="product-description">
-                        {this.props.description}
-                    </div>
-                    <div className="product-features red">
-                        Type: {this.props.type}
-                    </div>
-                    <div className="product-features green">
-                        {this.props.capacity} Gb
-                    </div>
-                    <div className="product-price">$ {this.props.price}</div>
+                    <h3 className="product-title">{name}</h3>
+                    <div className="product-description">{description}</div>
+                    <div className="product-features red">Type: {type}</div>
+                    <div className="product-features green">{capacity} Gb</div>
+                    <div className="product-price">$ {price}</div>
                     <div className="product-quantity">
                         <Button variant="contained">-</Button>
                         <TextField
