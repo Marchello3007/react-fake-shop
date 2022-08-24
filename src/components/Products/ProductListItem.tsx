@@ -26,7 +26,7 @@ type State = {
 
 class ProductListItem extends Component<ProductProps, State> {
     state = {
-        count: 7,
+        count: 5,
     }
     //або:
     // constructor(props: ProductProps) {
@@ -36,7 +36,15 @@ class ProductListItem extends Component<ProductProps, State> {
     //     }
     // }
 
+    onDecrementClick() {
+        console.log(this)
+        this.setState((prevState: State) => ({
+            count: prevState.count - 1,
+        }))
+    }
+
     render() {
+        console.log(this)
         const { image, name, description, type, capacity, price } = this.props
         return (
             <Card>
@@ -50,7 +58,12 @@ class ProductListItem extends Component<ProductProps, State> {
                     <div className="product-features green">{capacity} Gb</div>
                     <div className="product-price">$ {price}</div>
                     <div className="product-quantity">
-                        <Button variant="contained">-</Button>
+                        <Button
+                            variant="contained"
+                            onClick={this.onDecrementClick.bind(this)}
+                        >
+                            -
+                        </Button>
                         <TextField
                             size="small"
                             value={this.state.count}
