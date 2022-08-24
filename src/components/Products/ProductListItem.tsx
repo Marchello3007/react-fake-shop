@@ -30,9 +30,14 @@ class ProductListItem extends Component<ProductProps, State> {
     }
 
     onDecrementClick = () => {
-        console.log(this)
         this.setState((prevState: State) => ({
             count: prevState.count - 1,
+        }))
+    }
+
+    onIncrementClick = () => {
+        this.setState((prevState: State) => ({
+            count: prevState.count + 1,
         }))
     }
 
@@ -63,7 +68,12 @@ class ProductListItem extends Component<ProductProps, State> {
                             variant="outlined"
                             className="text-field"
                         />
-                        <Button variant="contained">+</Button>
+                        <Button
+                            variant="contained"
+                            onClick={this.onIncrementClick}
+                        >
+                            +
+                        </Button>
                     </div>
                 </CardContent>
 
