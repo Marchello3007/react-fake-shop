@@ -22,11 +22,13 @@ export type ProductProps = {
 
 type State = {
     count: number
+    color: string
 }
 
 class ProductListItem extends Component<ProductProps, State> {
     state = {
         count: 5,
+        color: 'green444',
     }
 
     onDecrementClick = () => {
@@ -41,8 +43,11 @@ class ProductListItem extends Component<ProductProps, State> {
         }))
     }
 
+    changeColor = () => {
+        this.setState({ color: 'RED' })
+    }
+
     render() {
-        console.log(this)
         const { image, name, description, type, capacity, price } = this.props
         return (
             <Card>
@@ -59,6 +64,7 @@ class ProductListItem extends Component<ProductProps, State> {
                         <Button
                             variant="contained"
                             onClick={this.onDecrementClick}
+                            disabled
                         >
                             -
                         </Button>
@@ -75,6 +81,8 @@ class ProductListItem extends Component<ProductProps, State> {
                             +
                         </Button>
                     </div>
+                    <p>Color: {this.state.color}</p>
+                    <button onClick={this.changeColor}>Change color</button>
                 </CardContent>
 
                 <CardActions className="btn-wrap">
