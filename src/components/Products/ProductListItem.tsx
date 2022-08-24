@@ -29,7 +29,7 @@ class ProductListItem extends Component<ProductProps, State> {
         count: 5,
     }
 
-    onDecrementClick() {
+    onDecrementClick = () => {
         console.log(this)
         this.setState((prevState: State) => ({
             count: prevState.count - 1,
@@ -53,7 +53,7 @@ class ProductListItem extends Component<ProductProps, State> {
                     <div className="product-quantity">
                         <Button
                             variant="contained"
-                            onClick={() => this.onDecrementClick()}
+                            onClick={this.onDecrementClick}
                         >
                             -
                         </Button>
