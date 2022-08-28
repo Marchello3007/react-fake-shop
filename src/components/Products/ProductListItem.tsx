@@ -28,16 +28,12 @@ const ProductListItem = ({
     price,
     image,
 }: ProductProps) => {
-    const [count, setCount] = useState<number>(15)
-    const [color, setColor] = useState<string>('green')
-    // const [text, setText] = useState<string>('bla-bla')
+    const [count, setCount] = useState<number>(1)
 
     const onIncrementClick = () =>
         setCount((prevState: number) => prevState + 1)
     const onDecrementClick = () =>
         setCount((prevState: number) => prevState - 1)
-    const toggleChangeColor = () =>
-        setColor((prevState: string) => (prevState === 'red' ? 'green' : 'red'))
 
     return (
         <Card>
@@ -45,13 +41,17 @@ const ProductListItem = ({
                 <div className="product-image">
                     <img src={image} alt="" />
                 </div>
-                <h3 className={`product-title ${color}`}>{name}</h3>
+                <h3 className="product-title">{name}</h3>
                 <div className="product-description">{description}</div>
                 <div className="product-features red">Type: {type}</div>
                 <div className="product-features green">{capacity} Gb</div>
                 <div className="product-price">$ {price}</div>
                 <div className="product-quantity">
-                    <Button variant="contained" onClick={onDecrementClick}>
+                    <Button
+                        variant="contained"
+                        onClick={onDecrementClick}
+                        disabled={count <= 1}
+                    >
                         -
                     </Button>
                     <TextField
@@ -60,12 +60,14 @@ const ProductListItem = ({
                         variant="outlined"
                         className="text-field"
                     />
-                    <Button variant="contained" onClick={onIncrementClick}>
+                    <Button
+                        variant="contained"
+                        onClick={onIncrementClick}
+                        disabled={count >= 10}
+                    >
                         +
                     </Button>
                 </div>
-                <p>Color: {color}</p>
-                <button onClick={toggleChangeColor}>Change Color</button>
             </CardContent>
 
             <CardActions className="btn-wrap">
