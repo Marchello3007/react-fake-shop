@@ -5,7 +5,7 @@ import {
     CardContent,
     TextField,
 } from '@mui/material'
-import React from 'react'
+import React, { useState } from 'react'
 // import './ProductListItem.css'
 import './ProductListItem.scss'
 import productsArray from './productsArray'
@@ -28,27 +28,44 @@ const ProductListItem = ({
     price,
     image,
 }: ProductProps) => {
+    const [count, setCount] = useState<number>(15)
+    const [color, setColor] = useState<string>('green')
+    // const [text, setText] = useState<string>('bla-bla')
+
+    const onIncrementClick = () =>
+        setCount((prevState: number) => prevState + 1)
+    const onDecrementClick = () =>
+        setCount((prevState: number) => prevState - 1)
+    const toggleChangeColor = () =>
+        setColor((prevState: string) => (prevState === 'red' ? 'green' : 'red'))
+
     return (
         <Card>
             <CardContent>
                 <div className="product-image">
                     <img src={image} alt="" />
                 </div>
-                <h3 className="product-title">{name}</h3>
+                <h3 className={`product-title ${color}`}>{name}</h3>
                 <div className="product-description">{description}</div>
                 <div className="product-features red">Type: {type}</div>
                 <div className="product-features green">{capacity} Gb</div>
                 <div className="product-price">$ {price}</div>
                 <div className="product-quantity">
-                    <Button variant="contained">-</Button>
+                    <Button variant="contained" onClick={onDecrementClick}>
+                        -
+                    </Button>
                     <TextField
                         size="small"
-                        value={1}
+                        value={count}
                         variant="outlined"
                         className="text-field"
                     />
-                    <Button variant="contained">+</Button>
+                    <Button variant="contained" onClick={onIncrementClick}>
+                        +
+                    </Button>
                 </div>
+                <p>Color: {color}</p>
+                <button onClick={toggleChangeColor}>Change Color</button>
             </CardContent>
 
             <CardActions className="btn-wrap">
