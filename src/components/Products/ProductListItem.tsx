@@ -23,29 +23,65 @@ export type ProductProps = {
 type State = {
     count: number
     color: string
+    disabled: boolean
 }
 
 class ProductListItem extends Component<ProductProps, State> {
     state = {
-        count: 5,
-        color: 'green444',
+        count: 1,
+        color: 'green',
+        // disabled: true,
+        disabled: false,
     }
 
+    // onDecrementClick = () => {
+    //     this.setState((prevState: State) => ({
+    //         count: prevState.count - 1,
+    //     }))
+    // }
+
+    // onIncrementClick = () => {
+    //     this.setState((prevState: State) => ({
+    //         count: prevState.count + 1,
+    //     }))
+    // }
+
+    // ///////////  green, red, black  /////////////
+    changeColor = () => {
+        if (this.state.color == 'green') {
+            this.setState({ color: 'red' })
+        } else if (this.state.color == 'red') {
+            this.setState({ color: 'black' })
+        } else {
+            this.setState({ color: 'green' })
+        }
+        console.log(this.state.color)
+    }
+    // ///////////
+
     onDecrementClick = () => {
-        this.setState((prevState: State) => ({
-            count: prevState.count - 1,
-        }))
+        if (this.state.count <= 0) {
+            this.setState({ disabled: true })
+        } else {
+            this.setState((prevState: State) => ({
+                count: prevState.count - 1,
+            }))
+        }
+        console.log(this.state.count)
     }
 
     onIncrementClick = () => {
-        this.setState((prevState: State) => ({
-            count: prevState.count + 1,
-        }))
+        if (this.state.count >= 10) {
+            this.setState({ disabled: true })
+        } else {
+            this.setState((prevState: State) => ({
+                count: prevState.count + 1,
+            }))
+        }
+        console.log(this.state.count)
     }
-
-    changeColor = () => {
-        this.setState({ color: 'RED' })
-    }
+    ///////////
+    ///////////
 
     render() {
         const { image, name, description, type, capacity, price } = this.props
@@ -64,7 +100,7 @@ class ProductListItem extends Component<ProductProps, State> {
                         <Button
                             variant="contained"
                             onClick={this.onDecrementClick}
-                            disabled
+                            disabled={this.state.disabled}
                         >
                             -
                         </Button>
@@ -77,6 +113,7 @@ class ProductListItem extends Component<ProductProps, State> {
                         <Button
                             variant="contained"
                             onClick={this.onIncrementClick}
+                            disabled={this.state.disabled}
                         >
                             +
                         </Button>
