@@ -1,52 +1,35 @@
-import React from 'react'
+import React, { useState } from 'react'
 import CssBaseline from '@mui/material/CssBaseline'
 import Header from 'container/Header/Header'
 import Main from 'container/Main/Main'
 
+type CartDataProps = {
+    totalCount: number
+    totalPrice: number
+}
+
 const App = () => {
+    const [cartData, setCartData] = useState<CartDataProps>({
+        totalCount: 0,
+        totalPrice: 0,
+    })
+
+    const addProductToCart = (count: number, price: number) =>
+        setCartData((prevState: CartDataProps) => ({
+            totalCount: prevState.totalCount + count,
+            totalPrice: prevState.totalPrice + count * price,
+        }))
+
     return (
         <>
             <CssBaseline />
-            <Header />
+            <Header cartData={cartData} />
+            <button onClick={() => addProductToCart(1, 100)}>
+                Add to Cart
+            </button>
             <Main />
         </>
     )
 }
 
 export default App
-
-//
-//
-//
-//
-//
-//
-//
-// import React from 'react'
-
-// function Blabla() {
-//     return (
-//         <>
-//             <div className="test222">
-//                 <h1>Yo, Hello World</h1>
-//                 <p>
-//                     Lorem, 999 ipsum dolor sit amet consectetur adipisicing
-//                     elit. Inventore ratione quod placeat architecto quam! Nobis
-//                     minima illum voluptas quos culpa magnam! Ullam molestiae cum
-//                     consectetur accusamus. Nulla dolores nisi quo!
-//                 </p>
-//             </div>
-//             <div>
-//                 <h1>Yo, Hello World</h1>
-//                 <p>
-//                     Lorem, 3999 ipsum dolor sit amet consectetur adipisicing
-//                     elit. Inventore ratione quod placeat architecto quam! Nobis
-//                     minima illum voluptas quos culpa magnam! Ullam molestiae cum
-//                     consectetur accusamus. Nulla dolores nisi quo!
-//                 </p>
-//             </div>
-//         </>
-//     )
-// }
-
-// export default Blabla
