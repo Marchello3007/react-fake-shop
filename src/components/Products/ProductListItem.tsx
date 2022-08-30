@@ -6,11 +6,10 @@ import {
     TextField,
 } from '@mui/material'
 import React, { useState } from 'react'
-// import './ProductListItem.css'
 import './ProductListItem.scss'
 import productsArray from './productsArray'
 
-export type ProductProps = {
+type ProductProps = {
     id: number
     name: string
     description: string
@@ -18,6 +17,7 @@ export type ProductProps = {
     capacity: number
     price: number
     image: string
+    addProductToCart: (count: number, price: number) => void
 }
 
 const ProductListItem = ({
@@ -27,6 +27,7 @@ const ProductListItem = ({
     capacity,
     price,
     image,
+    addProductToCart,
 }: ProductProps) => {
     const [count, setCount] = useState<number>(1)
 
@@ -71,7 +72,12 @@ const ProductListItem = ({
             </CardContent>
 
             <CardActions className="btn-wrap">
-                <Button variant="outlined">Add to cart</Button>
+                <Button
+                    variant="outlined"
+                    onClick={() => addProductToCart(count, price)}
+                >
+                    Add to cart
+                </Button>
             </CardActions>
         </Card>
     )

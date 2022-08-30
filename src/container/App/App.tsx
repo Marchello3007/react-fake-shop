@@ -24,10 +24,7 @@ const App = () => {
         <>
             <CssBaseline />
             <Header cartData={cartData} />
-            <button onClick={() => addProductToCart(1, 100)}>
-                Add to Cart
-            </button>
-            <Main />
+            <Main addProductToCart={addProductToCart} />
         </>
     )
 }
