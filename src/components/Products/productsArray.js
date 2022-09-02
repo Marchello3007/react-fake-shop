@@ -1,6 +1,6 @@
 const productsArray = [
     {
-        id: 11,
+        id: 1,
         name: 'iPhne X',
         description: 'This is iPhone X',
         type: 'phone',
@@ -9,7 +9,7 @@ const productsArray = [
         image: '/images/111.jpg',
     },
     {
-        id: 22,
+        id: 2,
         name: 'iPhne XS',
         description: 'This is iPhone XS',
         type: 'phone',
@@ -18,7 +18,7 @@ const productsArray = [
         image: '/images/222.jpg',
     },
     {
-        id: 33,
+        id: 3,
         name: 'iPhne 13 Pro',
         description: 'This is iPhone 13 Pro',
         type: 'phone',
@@ -27,7 +27,7 @@ const productsArray = [
         image: '/images/333.jpg',
     },
     {
-        id: 44,
+        id: 4,
         name: 'iPhne 8 plus',
         description: 'This is iPhone 8 plus',
         type: 'phone',
@@ -36,7 +36,7 @@ const productsArray = [
         image: '/images/444.jpg',
     },
     {
-        id: 55,
+        id: 5,
         name: 'iPhne 13',
         description: 'This is iPhone 13',
         type: 'phone',
@@ -45,7 +45,7 @@ const productsArray = [
         image: '/images/555.jpg',
     },
     {
-        id: 66,
+        id: 6,
         name: 'iPhne 11 Pro Max',
         description: 'This is iPhone 11 Pro Max',
         type: 'phone',
