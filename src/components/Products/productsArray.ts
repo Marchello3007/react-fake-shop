@@ -1,4 +1,15 @@
-const productsArray = [
+export type Product = {
+    id: number
+    name: string
+    description: string
+    type: string
+    capacity: number
+    price: number
+    image: string
+}
+
+
+const productsArray:Product[] = [
     {
         id: 1,
         name: 'iPhne X',
@@ -56,3 +67,11 @@ const productsArray = [
 ]
 
 export default productsArray
+
+export const getProductObject = (array:Product[]) => {
+    return array.reduce((Object,product) => ({
+        ...Object,
+        [product.id]:product
+    }),{})
+}
+
