@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import CssBaseline from '@mui/material/CssBaseline'
 import Header from 'container/Header/Header'
 import Main from 'container/Main/Main'
-import { omit } from 'lodash'
+import { omit, omitBy } from 'lodash'
 
 type ProductsInCartProps = {
     [id: number]: number
@@ -22,21 +22,19 @@ const App = () => {
     }
 
     const removeProductFromCart = (id: number) => {
-        setProductsInCart((prevState: ProductsInCartProps) => {
-            let prevProductsInCart = { ...prevState }
-            delete prevProductsInCart[id]
-            return prevProductsInCart
-        })
+        setProductsInCart((prevState: ProductsInCartProps) =>
+            omit(prevState, [id])
+        )
     }
 
     return (
         <>
             <CssBaseline />
             <Header productsInCart={productsInCart} />
-            <button onClick={() => removeProductFromCart(1)}>Delete</button>
             <Main
                 addProductToCart={addProductToCart}
                 productsInCart={productsInCart}
+                removeProductFromCart={removeProductFromCart}
             />
         </>
     )
