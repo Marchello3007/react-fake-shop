@@ -27,14 +27,36 @@ const App = () => {
         )
     }
 
+    const plusOne = (id: number, count: number) => {
+        setProductsInCart((prevState: ProductsInCartProps) => {
+            let prevProductsInCart = { ...prevState }
+            prevProductsInCart[id]++
+            return prevProductsInCart
+        })
+    }
+
+    const minusOne = (id: number, count: number) => {
+        setProductsInCart((prevState: ProductsInCartProps) => {
+            let prevProductsInCart = { ...prevState }
+            prevProductsInCart[id]--
+            return prevProductsInCart
+        })
+    }
+
+    console.log(productsInCart)
+
     return (
         <>
             <CssBaseline />
             <Header productsInCart={productsInCart} />
+            {/* <button onClick={() => plusOne(1, 1)}>plusOne</button>
+            <button onClick={() => minusOne(1, 1)}>minusOne</button> */}
             <Main
                 addProductToCart={addProductToCart}
                 productsInCart={productsInCart}
                 removeProductFromCart={removeProductFromCart}
+                plusOne={plusOne}
+                minusOne={minusOne}
             />
         </>
     )

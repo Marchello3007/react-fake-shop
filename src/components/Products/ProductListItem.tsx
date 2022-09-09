@@ -5,6 +5,7 @@ import {
     CardContent,
     TextField,
 } from '@mui/material'
+import Quantity from 'components/Quantity/Quantity'
 import React, { useState } from 'react'
 import './ProductListItem.scss'
 import productsArray from './productsArray'
@@ -48,7 +49,7 @@ const ProductListItem = ({
                 <div className="product-features red">Type: {type}</div>
                 <div className="product-features green">{capacity} Gb</div>
                 <div className="product-price">$ {price}</div>
-                <div className="product-quantity">
+                {/* <div className="product-quantity">
                     <Button
                         variant="contained"
                         onClick={onDecrementClick}
@@ -69,7 +70,12 @@ const ProductListItem = ({
                     >
                         +
                     </Button>
-                </div>
+                </div> */}
+                <Quantity
+                    onDecrementClick={onDecrementClick}
+                    onIncrementClick={onIncrementClick}
+                    count={count}
+                />
             </CardContent>
 
             <CardActions className="btn-wrap">

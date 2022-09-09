@@ -7,6 +7,8 @@ import { Routes, Route } from 'react-router-dom'
 type Props = {
     addProductToCart: (id: number, count: number) => void
     removeProductFromCart: (id: number) => void
+    plusOne: (id: number, count: number) => void
+    minusOne: (id: number, count: number) => void
     productsInCart: {
         [id: number]: number
     }
@@ -16,6 +18,8 @@ const Main = ({
     addProductToCart,
     productsInCart,
     removeProductFromCart,
+    plusOne,
+    minusOne,
 }: Props) => {
     return (
         <>
@@ -34,6 +38,8 @@ const Main = ({
                             <CartPage
                                 removeProductFromCart={removeProductFromCart}
                                 productsInCart={productsInCart}
+                                plusOne={plusOne}
+                                minusOne={minusOne}
                             />
                         }
                     />
